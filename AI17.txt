@@ -1,0 +1,132 @@
+Student 1: M2 M4 M5 M6 M7 
+Student 2: M2 M4 M5 M8 M10 
+Student 3: M1 M3 M4 M7 M8 
+Student 4: M1 M3 M6 M7 M9 
+Student 5: M5 M6 M7 M8 M9 
+Student 6: M1 M2 M6 M9 M10 
+Student 7: M2 M5 M6 M9 M10 
+Student 8: M4 M5 M8 M9 M10 
+Student 9: M1 M3 M4 M5 M8 
+Student 10: M1 M2 M4 M5 M8 
+
+
+Ord1:	m6	m8	m2	m10	m5
+		m7	m4	m3	m1	m9	cost: 12
+	
+Ord2:	m9	m2	m6	m1	m10
+		m7	m4	m5	m3	m8	cost: 13
+	
+Ord3:	m1	m5	m8	m2	m7
+		m4	m3	m10	m6	m9	cost: 11
+	
+Ord4:	m4	m9	m10	m7	m6
+		m2	m8	m1	m3	m5	cost: 11
+	
+Ord5:	m10	m8	m9	m4	m1
+		m2	m5	m7	m6	m3	cost: 14
+	
+Ord6:	m3	m2	m7	m8	m9
+		m1	m4	m10	m6	m5	cost: 10
+	
+Ord7:	m6	m4	m5	m8	m10
+		m3	m2	m7	m1	m9	cost: 12
+	
+Ord8:	m1	m6	m4	m8	m10
+		m9	m7	m5	m3	m2	cost: 15
+	
+Ord9:	m7	m3	m8	m4	m2
+		m5	m10	m9	m6	m1	cost: 7
+	
+Ord10:	m7	m5	m2	m4	m6
+		m1	m9	m8	m3	m10	cost: 11
+	
+Ord11:	m3	m5	m4	m7	m6
+		m2	m9	m8	m10	m1	cost: 10
+	
+Ord12:	m4	m6	m3	m1	m5
+		m8	m2	m9	m10	m7	cost: 12
+	
+Ord13:	m8	m6	m3	m2	m7
+		m10	m9	m4	m1	m5	cost: 12
+	
+Ord14:	m10	m1	m9	m7	m6
+		m3	m8	m5	m2	m4	cost: 8
+	
+Ord15:	m6	m7	m5	m8	m3
+		m4	m10	m1	m2	m9	cost: 6
+	
+Ord16:	m7	m8	m2	m1	m5
+		m4	m6	m3	m10	m9	cost: 7
+	
+Ord17:	m4	m5	m2	m1	m10
+		m7	m9	m6	m3	m8	cost: 13
+	
+Ord18:	m4	m5	m9	m3	m7
+		m10	m2	m8	m1	m6	cost: 14
+	
+Ord19:	m8	m1	m7	m5	m4
+		m3	m10	m6	m2	m9	cost: 11
+	
+Ord20:	m3	m4	m1	m10	m8
+		m2	m6	m7	m5	m9	cost: 8
+	
+Ord21:	m3	m1	m5	m4	m9
+		m2	m7	m10	m6	m8	cost: 8
+	
+Ord22:	m2	m8	m6	m5	m7
+		m1	m9	m4	m10	m3	cost: 10
+	
+Ord23:	m7	m1	m4	m6	m8
+		m10	m3	m9	m2	m5	cost: 12
+	
+Ord24:	m6	m8	m3	m7	m1
+		m4	m2	m5	m10	m9	cost: 6
+	
+Ord25:	m1	m4	m9	m6	m2
+		m3	m7	m10	m5	m8	cost: 13
+	
+Ord26:	m5	m4	m3	m9	m6
+		m1	m10	m8	m7	m2	cost: 11
+	
+Ord27:	m10	m3	m1	m7	m8
+		m6	m5	m4	m2	m9	cost: 9
+	
+Ord28:	m3	m2	m9	m5	m10
+		m4	m6	m1	m8	m7	cost: 12
+	
+Ord29:	m4	m10	m6	m9	m3
+		m5	m1	m2	m7	m8	cost: 13
+	
+Ord30:	m3	m9	m8	m10	m7
+		m4	m2	m1	m5	m6	cost: 13
+	
+Ord31:	m1	m7	m6	m10	m4
+		m8	m5	m3	m2	m9	cost: 10
+	
+Ord32:	m3	m1	m10	m2	m7
+		m9	m4	m8	m5	m6	cost: 13
+	
+Ord33:	m10	m4	m3	m5	m9
+		m8	m6	m7	m1	m2	cost: 9
+	
+Ord34:	m10	m9	m8	m6	m7
+		m3	m1	m2	m5	m4	cost: 9
+	
+Ord35:	m3	m7	m2	m10	m9
+		m6	m5	m8	m1	m4	cost: 7
+	
+Ord36:	m2	m3	m7	m5	m10
+		m4	m6	m8	m9	m1	cost: 10
+	
+Ord37:	m4	m8	m10	m5	m2
+		m6	m1	m3	m7	m9	cost: 8
+	
+Ord38:	m6	m10	m3	m4	m2
+		m7	m8	m1	m9	m5	cost: 13
+	
+Ord39:	m8	m4	m9	m1	m10
+		m6	m7	m2	m5	m3	cost: 7
+	
+Ord40:	m10	m1	m7	m4	m6
+		m9	m3	m8	m2	m5	cost: 14
+	
