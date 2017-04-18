@@ -1,132 +1,402 @@
-Student 1: M2 M4 M5 M6 M7 
-Student 2: M2 M4 M5 M8 M10 
-Student 3: M1 M3 M4 M7 M8 
-Student 4: M1 M3 M6 M7 M9 
-Student 5: M5 M6 M7 M8 M9 
-Student 6: M1 M2 M6 M9 M10 
-Student 7: M2 M5 M6 M9 M10 
-Student 8: M4 M5 M8 M9 M10 
-Student 9: M1 M3 M4 M5 M8 
-Student 10: M1 M2 M4 M5 M8 
+Student 1: M1 M2 M3 M9 M10 
+Student 2: M1 M5 M6 M8 M10 
+Student 3: M2 M3 M4 M5 M9 
+Student 4: M1 M2 M4 M5 M9 
+Student 5: M1 M3 M6 M7 M8 
+Student 6: M2 M4 M5 M6 M10 
+Student 7: M1 M5 M6 M9 M10 
+Student 8: M4 M5 M6 M7 M8 
+Student 9: M1 M6 M8 M9 M10 
+Student 10: M2 M4 M5 M7 M10 
+Student 11: M1 M2 M6 M8 M9 
+Student 12: M1 M2 M3 M7 M10 
+Student 13: M2 M3 M7 M8 M10 
+Student 14: M3 M4 M6 M8 M9 
+Student 15: M1 M3 M5 M6 M10 
+Student 16: M1 M3 M4 M8 M10 
+Student 17: M1 M2 M3 M6 M10 
+Student 18: M1 M4 M5 M6 M9 
+Student 19: M1 M2 M4 M9 M10 
+Student 20: M2 M3 M4 M7 M9 
+Student 21: M1 M4 M7 M8 M9 
+Student 22: M4 M5 M6 M7 M10 
+Student 23: M4 M5 M7 M8 M10 
+Student 24: M2 M3 M4 M7 M8 
+Student 25: M1 M2 M3 M7 M8 
+Student 26: M1 M5 M6 M8 M10 
+Student 27: M3 M5 M6 M7 M8 
+Student 28: M1 M5 M6 M9 M10 
+Student 29: M3 M4 M7 M8 M9 
+Student 30: M3 M4 M6 M8 M10 
+Student 31: M1 M3 M6 M8 M9 
+Student 32: M1 M2 M3 M5 M7 
+Student 33: M2 M3 M4 M6 M10 
+Student 34: M2 M3 M6 M8 M10 
+Student 35: M1 M5 M6 M7 M8 
+Student 36: M3 M4 M6 M7 M10 
+Student 37: M1 M3 M4 M6 M10 
+Student 38: M1 M3 M7 M9 M10 
+Student 39: M3 M4 M5 M7 M10 
+Student 40: M1 M2 M4 M9 M10 
+Student 41: M2 M3 M5 M7 M9 
+Student 42: M1 M6 M7 M8 M9 
+Student 43: M1 M2 M5 M6 M9 
+Student 44: M1 M4 M5 M8 M9 
+Student 45: M2 M7 M8 M9 M10 
+Student 46: M4 M5 M6 M7 M9 
+Student 47: M2 M3 M5 M8 M9 
+Student 48: M2 M5 M6 M7 M9 
+Student 49: M3 M6 M7 M9 M10 
+Student 50: M2 M4 M7 M8 M9 
+Student 51: M3 M5 M6 M7 M10 
+Student 52: M1 M3 M6 M8 M10 
+Student 53: M2 M4 M8 M9 M10 
+Student 54: M2 M3 M8 M9 M10 
+Student 55: M4 M5 M7 M9 M10 
+Student 56: M2 M5 M7 M8 M9 
+Student 57: M2 M4 M5 M6 M10 
+Student 58: M1 M2 M3 M4 M7 
+Student 59: M1 M2 M3 M5 M10 
+Student 60: M1 M3 M4 M6 M8 
+Student 61: M1 M2 M6 M7 M10 
+Student 62: M2 M3 M4 M9 M10 
+Student 63: M2 M3 M6 M7 M9 
+Student 64: M1 M2 M5 M6 M10 
+Student 65: M3 M5 M6 M9 M10 
+Student 66: M1 M3 M4 M8 M9 
+Student 67: M1 M5 M6 M7 M9 
+Student 68: M1 M3 M5 M6 M10 
+Student 69: M1 M2 M4 M5 M7 
+Student 70: M1 M5 M6 M8 M10 
+Student 71: M1 M5 M6 M8 M9 
+Student 72: M1 M3 M4 M7 M8 
+Student 73: M1 M4 M6 M7 M10 
+Student 74: M1 M2 M4 M7 M9 
+Student 75: M1 M2 M3 M5 M9 
+Student 76: M1 M2 M3 M5 M6 
+Student 77: M4 M5 M6 M7 M10 
+Student 78: M1 M2 M3 M4 M5 
+Student 79: M3 M4 M5 M8 M10 
+Student 80: M2 M4 M6 M7 M9 
+Student 81: M3 M5 M6 M8 M9 
+Student 82: M2 M4 M5 M7 M9 
+Student 83: M2 M4 M6 M9 M10 
+Student 84: M1 M2 M5 M7 M10 
+Student 85: M6 M7 M8 M9 M10 
+Student 86: M2 M3 M7 M9 M10 
+Student 87: M3 M4 M6 M9 M10 
+Student 88: M2 M3 M4 M5 M9 
+Student 89: M1 M3 M6 M9 M10 
+Student 90: M1 M3 M5 M6 M7 
+Student 91: M3 M4 M5 M8 M10 
+Student 92: M2 M4 M6 M9 M10 
+Student 93: M2 M4 M6 M7 M8 
+Student 94: M3 M5 M6 M9 M10 
+Student 95: M3 M4 M6 M7 M10 
+Student 96: M1 M2 M4 M7 M8 
+Student 97: M2 M5 M6 M7 M10 
+Student 98: M2 M3 M6 M9 M10 
+Student 99: M3 M5 M7 M9 M10 
+Student 100: M1 M2 M5 M9 M10 
 
 
-Ord1:	m6	m8	m2	m10	m5
-		m7	m4	m3	m1	m9	cost: 12
+Ord1:	m8	m5	m9	m7	m1
+		m4	m10	m3	m2	m6	cost: 119
 	
-Ord2:	m9	m2	m6	m1	m10
-		m7	m4	m5	m3	m8	cost: 13
+Ord2:	m5	m4	m7	m9	m1
+		m3	m2	m8	m6	m10	cost: 112
 	
-Ord3:	m1	m5	m8	m2	m7
-		m4	m3	m10	m6	m9	cost: 11
+Ord3:	m5	m8	m2	m10	m4
+		m7	m1	m9	m6	m3	cost: 125
 	
-Ord4:	m4	m9	m10	m7	m6
-		m2	m8	m1	m3	m5	cost: 11
+Ord4:	m4	m10	m6	m5	m7
+		m8	m2	m9	m3	m1	cost: 107
 	
-Ord5:	m10	m8	m9	m4	m1
-		m2	m5	m7	m6	m3	cost: 14
+Ord5:	m9	m4	m7	m5	m3
+		m2	m8	m10	m6	m1	cost: 118
 	
-Ord6:	m3	m2	m7	m8	m9
-		m1	m4	m10	m6	m5	cost: 10
+Ord6:	m8	m2	m1	m7	m5
+		m9	m10	m6	m3	m4	cost: 112
 	
-Ord7:	m6	m4	m5	m8	m10
-		m3	m2	m7	m1	m9	cost: 12
+Ord7:	m2	m8	m9	m5	m6
+		m10	m4	m3	m1	m7	cost: 113
 	
-Ord8:	m1	m6	m4	m8	m10
-		m9	m7	m5	m3	m2	cost: 15
+Ord8:	m1	m3	m4	m5	m7
+		m8	m2	m10	m6	m9	cost: 116
 	
-Ord9:	m7	m3	m8	m4	m2
-		m5	m10	m9	m6	m1	cost: 7
+Ord9:	m8	m7	m6	m5	m4
+		m3	m9	m2	m10	m1	cost: 102
 	
-Ord10:	m7	m5	m2	m4	m6
-		m1	m9	m8	m3	m10	cost: 11
+Ord10:	m9	m6	m3	m7	m4
+		m5	m2	m10	m8	m1	cost: 106
 	
-Ord11:	m3	m5	m4	m7	m6
-		m2	m9	m8	m10	m1	cost: 10
+Ord11:	m4	m7	m2	m10	m8
+		m5	m9	m6	m3	m1	cost: 108
 	
-Ord12:	m4	m6	m3	m1	m5
-		m8	m2	m9	m10	m7	cost: 12
+Ord12:	m3	m5	m2	m4	m9
+		m8	m10	m7	m1	m6	cost: 112
 	
-Ord13:	m8	m6	m3	m2	m7
-		m10	m9	m4	m1	m5	cost: 12
+Ord13:	m3	m2	m1	m6	m9
+		m8	m4	m5	m10	m7	cost: 123
 	
-Ord14:	m10	m1	m9	m7	m6
-		m3	m8	m5	m2	m4	cost: 8
+Ord14:	m10	m7	m3	m4	m1
+		m5	m2	m9	m8	m6	cost: 119
 	
-Ord15:	m6	m7	m5	m8	m3
-		m4	m10	m1	m2	m9	cost: 6
+Ord15:	m5	m6	m4	m3	m9
+		m2	m10	m7	m8	m1	cost: 122
 	
-Ord16:	m7	m8	m2	m1	m5
-		m4	m6	m3	m10	m9	cost: 7
+Ord16:	m5	m9	m1	m2	m8
+		m10	m4	m6	m3	m7	cost: 118
 	
-Ord17:	m4	m5	m2	m1	m10
-		m7	m9	m6	m3	m8	cost: 13
+Ord17:	m9	m10	m3	m8	m2
+		m1	m5	m7	m6	m4	cost: 114
 	
-Ord18:	m4	m5	m9	m3	m7
-		m10	m2	m8	m1	m6	cost: 14
+Ord18:	m10	m7	m8	m6	m4
+		m5	m2	m3	m1	m9	cost: 120
 	
-Ord19:	m8	m1	m7	m5	m4
-		m3	m10	m6	m2	m9	cost: 11
+Ord19:	m10	m4	m7	m5	m6
+		m9	m2	m3	m1	m8	cost: 114
 	
-Ord20:	m3	m4	m1	m10	m8
-		m2	m6	m7	m5	m9	cost: 8
+Ord20:	m7	m8	m9	m10	m3
+		m1	m4	m6	m5	m2	cost: 111
 	
-Ord21:	m3	m1	m5	m4	m9
-		m2	m7	m10	m6	m8	cost: 8
+Ord21:	m8	m4	m10	m3	m9
+		m5	m6	m2	m7	m1	cost: 103
 	
-Ord22:	m2	m8	m6	m5	m7
-		m1	m9	m4	m10	m3	cost: 10
+Ord22:	m4	m5	m8	m10	m9
+		m7	m6	m2	m3	m1	cost: 117
 	
-Ord23:	m7	m1	m4	m6	m8
-		m10	m3	m9	m2	m5	cost: 12
+Ord23:	m10	m6	m9	m1	m2
+		m3	m4	m5	m8	m7	cost: 116
 	
-Ord24:	m6	m8	m3	m7	m1
-		m4	m2	m5	m10	m9	cost: 6
+Ord24:	m10	m8	m6	m2	m3
+		m7	m4	m5	m1	m9	cost: 113
 	
-Ord25:	m1	m4	m9	m6	m2
-		m3	m7	m10	m5	m8	cost: 13
+Ord25:	m8	m3	m7	m4	m5
+		m2	m9	m6	m1	m10	cost: 102
 	
-Ord26:	m5	m4	m3	m9	m6
-		m1	m10	m8	m7	m2	cost: 11
+Ord26:	m5	m7	m6	m2	m4
+		m10	m9	m8	m1	m3	cost: 111
 	
-Ord27:	m10	m3	m1	m7	m8
-		m6	m5	m4	m2	m9	cost: 9
+Ord27:	m2	m8	m3	m6	m1
+		m4	m10	m5	m9	m7	cost: 104
 	
-Ord28:	m3	m2	m9	m5	m10
-		m4	m6	m1	m8	m7	cost: 12
+Ord28:	m2	m6	m3	m10	m1
+		m5	m7	m9	m8	m4	cost: 101
 	
-Ord29:	m4	m10	m6	m9	m3
-		m5	m1	m2	m7	m8	cost: 13
+Ord29:	m10	m9	m1	m7	m5
+		m3	m4	m6	m2	m8	cost: 118
 	
-Ord30:	m3	m9	m8	m10	m7
-		m4	m2	m1	m5	m6	cost: 13
+Ord30:	m3	m4	m9	m10	m5
+		m2	m1	m7	m6	m8	cost: 110
 	
-Ord31:	m1	m7	m6	m10	m4
-		m8	m5	m3	m2	m9	cost: 10
+Ord31:	m6	m10	m5	m4	m8
+		m7	m3	m9	m1	m2	cost: 105
 	
-Ord32:	m3	m1	m10	m2	m7
-		m9	m4	m8	m5	m6	cost: 13
+Ord32:	m10	m2	m9	m3	m7
+		m8	m4	m5	m6	m1	cost: 107
 	
-Ord33:	m10	m4	m3	m5	m9
-		m8	m6	m7	m1	m2	cost: 9
+Ord33:	m7	m3	m5	m9	m2
+		m8	m1	m10	m6	m4	cost: 116
 	
-Ord34:	m10	m9	m8	m6	m7
-		m3	m1	m2	m5	m4	cost: 9
+Ord34:	m5	m7	m1	m2	m10
+		m6	m4	m8	m3	m9	cost: 119
 	
-Ord35:	m3	m7	m2	m10	m9
-		m6	m5	m8	m1	m4	cost: 7
+Ord35:	m6	m1	m3	m7	m8
+		m10	m2	m9	m5	m4	cost: 120
 	
-Ord36:	m2	m3	m7	m5	m10
-		m4	m6	m8	m9	m1	cost: 10
+Ord36:	m4	m2	m1	m6	m10
+		m5	m9	m3	m7	m8	cost: 109
 	
-Ord37:	m4	m8	m10	m5	m2
-		m6	m1	m3	m7	m9	cost: 8
+Ord37:	m7	m1	m10	m9	m2
+		m6	m3	m4	m8	m5	cost: 109
 	
-Ord38:	m6	m10	m3	m4	m2
-		m7	m8	m1	m9	m5	cost: 13
+Ord38:	m9	m5	m3	m1	m4
+		m2	m7	m8	m10	m6	cost: 114
 	
-Ord39:	m8	m4	m9	m1	m10
-		m6	m7	m2	m5	m3	cost: 7
+Ord39:	m2	m10	m4	m3	m8
+		m1	m7	m9	m5	m6	cost: 107
 	
-Ord40:	m10	m1	m7	m4	m6
-		m9	m3	m8	m2	m5	cost: 14
+Ord40:	m8	m3	m9	m7	m1
+		m10	m6	m2	m5	m4	cost: 109
+	
+Ord41:	m2	m3	m7	m5	m8
+		m1	m6	m10	m4	m9	cost: 107
+	
+Ord42:	m3	m7	m9	m5	m1
+		m6	m4	m2	m10	m8	cost: 123
+	
+Ord43:	m10	m4	m7	m5	m1
+		m6	m9	m8	m3	m2	cost: 118
+	
+Ord44:	m2	m7	m9	m1	m5
+		m6	m4	m3	m10	m8	cost: 104
+	
+Ord45:	m1	m10	m9	m2	m8
+		m7	m3	m5	m4	m6	cost: 115
+	
+Ord46:	m8	m5	m1	m2	m9
+		m3	m10	m4	m7	m6	cost: 112
+	
+Ord47:	m10	m4	m5	m3	m9
+		m1	m6	m7	m2	m8	cost: 108
+	
+Ord48:	m9	m5	m7	m2	m3
+		m6	m8	m1	m4	m10	cost: 111
+	
+Ord49:	m7	m3	m9	m10	m8
+		m1	m4	m2	m5	m6	cost: 114
+	
+Ord50:	m3	m10	m5	m4	m1
+		m6	m2	m9	m8	m7	cost: 110
+	
+Ord51:	m2	m7	m6	m9	m8
+		m1	m3	m5	m10	m4	cost: 114
+	
+Ord52:	m5	m1	m4	m6	m2
+		m9	m7	m10	m8	m3	cost: 109
+	
+Ord53:	m7	m3	m9	m8	m10
+		m4	m6	m2	m5	m1	cost: 116
+	
+Ord54:	m5	m4	m2	m7	m1
+		m6	m8	m10	m3	m9	cost: 115
+	
+Ord55:	m4	m3	m10	m6	m5
+		m8	m9	m7	m2	m1	cost: 105
+	
+Ord56:	m2	m1	m3	m10	m5
+		m6	m4	m8	m7	m9	cost: 99
+	
+Ord57:	m1	m4	m8	m2	m9
+		m10	m6	m5	m3	m7	cost: 103
+	
+Ord58:	m2	m3	m8	m5	m6
+		m1	m7	m9	m10	m4	cost: 108
+	
+Ord59:	m7	m9	m1	m4	m2
+		m6	m5	m10	m8	m3	cost: 111
+	
+Ord60:	m6	m3	m4	m8	m5
+		m7	m1	m2	m10	m9	cost: 108
+	
+Ord61:	m7	m4	m10	m5	m8
+		m2	m6	m3	m9	m1	cost: 116
+	
+Ord62:	m5	m2	m7	m6	m8
+		m1	m3	m4	m10	m9	cost: 124
+	
+Ord63:	m3	m10	m6	m7	m2
+		m4	m9	m8	m1	m5	cost: 106
+	
+Ord64:	m9	m2	m6	m4	m5
+		m3	m7	m10	m8	m1	cost: 124
+	
+Ord65:	m8	m10	m7	m1	m3
+		m6	m2	m4	m9	m5	cost: 112
+	
+Ord66:	m5	m6	m9	m1	m10
+		m8	m2	m4	m3	m7	cost: 99
+	
+Ord67:	m8	m3	m5	m9	m6
+		m1	m10	m4	m2	m7	cost: 119
+	
+Ord68:	m3	m5	m7	m8	m4
+		m2	m6	m1	m10	m9	cost: 109
+	
+Ord69:	m4	m8	m6	m7	m1
+		m10	m9	m5	m2	m3	cost: 117
+	
+Ord70:	m1	m6	m9	m3	m4
+		m7	m2	m10	m8	m5	cost: 100
+	
+Ord71:	m8	m10	m7	m3	m6
+		m2	m9	m1	m5	m4	cost: 96
+	
+Ord72:	m8	m6	m4	m5	m3
+		m9	m10	m1	m2	m7	cost: 113
+	
+Ord73:	m9	m3	m1	m8	m7
+		m2	m6	m5	m4	m10	cost: 117
+	
+Ord74:	m7	m3	m9	m4	m6
+		m2	m5	m10	m8	m1	cost: 114
+	
+Ord75:	m2	m9	m4	m5	m7
+		m3	m1	m8	m6	m10	cost: 113
+	
+Ord76:	m10	m7	m2	m8	m9
+		m3	m6	m1	m4	m5	cost: 115
+	
+Ord77:	m9	m6	m2	m8	m10
+		m7	m5	m3	m1	m4	cost: 116
+	
+Ord78:	m2	m1	m7	m3	m8
+		m9	m10	m6	m5	m4	cost: 113
+	
+Ord79:	m4	m1	m7	m9	m5
+		m10	m3	m6	m2	m8	cost: 111
+	
+Ord80:	m7	m5	m9	m4	m1
+		m8	m3	m6	m2	m10	cost: 112
+	
+Ord81:	m4	m7	m5	m3	m9
+		m6	m1	m2	m10	m8	cost: 108
+	
+Ord82:	m7	m3	m5	m6	m4
+		m2	m8	m9	m10	m1	cost: 118
+	
+Ord83:	m7	m4	m9	m8	m1
+		m3	m6	m10	m5	m2	cost: 102
+	
+Ord84:	m6	m10	m3	m2	m8
+		m1	m7	m9	m4	m5	cost: 110
+	
+Ord85:	m4	m10	m5	m3	m2
+		m7	m1	m9	m6	m8	cost: 110
+	
+Ord86:	m5	m7	m6	m1	m8
+		m9	m3	m4	m2	m10	cost: 103
+	
+Ord87:	m1	m9	m8	m10	m5
+		m3	m4	m2	m6	m7	cost: 115
+	
+Ord88:	m4	m7	m1	m8	m10
+		m2	m9	m5	m6	m3	cost: 119
+	
+Ord89:	m4	m8	m2	m5	m3
+		m6	m10	m7	m9	m1	cost: 106
+	
+Ord90:	m5	m1	m7	m6	m10
+		m9	m3	m4	m2	m8	cost: 104
+	
+Ord91:	m4	m9	m3	m5	m1
+		m7	m10	m8	m2	m6	cost: 117
+	
+Ord92:	m10	m9	m3	m7	m4
+		m8	m6	m5	m1	m2	cost: 104
+	
+Ord93:	m3	m5	m7	m2	m1
+		m8	m6	m10	m4	m9	cost: 115
+	
+Ord94:	m7	m2	m10	m6	m8
+		m5	m9	m3	m1	m4	cost: 125
+	
+Ord95:	m2	m1	m6	m10	m8
+		m7	m4	m5	m3	m9	cost: 117
+	
+Ord96:	m5	m10	m9	m4	m1
+		m3	m7	m2	m8	m6	cost: 115
+	
+Ord97:	m3	m5	m7	m1	m9
+		m8	m2	m4	m10	m6	cost: 115
+	
+Ord98:	m5	m2	m9	m8	m1
+		m4	m7	m10	m6	m3	cost: 111
+	
+Ord99:	m9	m1	m7	m6	m8
+		m4	m3	m10	m2	m5	cost: 99
+	
+Ord100:	m5	m4	m10	m6	m8
+		m2	m3	m9	m7	m1	cost: 109
 	

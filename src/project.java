@@ -51,7 +51,6 @@ public class project {
                 if (percentages != 0 || reproduction < 5 || crossover < 5 || mutation < 5){
                     System.out.println("Total value of settings must equal 100% and minimum value is 5%\n" +
                             "Using default values of 80%, 15%, 5% for reproduction, crossover, mutation respectively");
-                    percentages = 0;
                     reproduction = 80;
                     crossover = 15;
                     mutation = 5;
@@ -69,9 +68,11 @@ public class project {
         }
 
         else{
-            //using a list of integers to represent all modules. This makes it possible to
-            //use collection sort instead of constantly generating random numbers
-            //and guarantees no repeat numbers
+            /*
+            Using a list of integers to represent all modules. This makes it possible to
+            use collection sort instead of constantly generating random numbers
+            and guarantees no repeat numbers
+            */
             List<Integer> modules = new ArrayList<>();
             for (int i = 1; i <= totalModules; i++) {
                 modules.add(i);
@@ -87,8 +88,10 @@ public class project {
 
             printToFile(studentModules, orderings);
 
+            //TODO remove after testing
             reorder(orderings);
 
+            //TODO remove after testing
             printToScreen(orderings);
 
             int rep = (int)(((double)reproduction /100) * orderings.size());
@@ -96,8 +99,13 @@ public class project {
             int mut = (int)Math.ceil(((double)mutation/100) * orderings.size());
 
             System.out.println("Rep :" + rep + " cross :" + cross +" mut :" + mut);
+            /*
+            randomOrderings is a List of ints that correspond to the orderings ArrayList
+            this is used to shuffle the orderings using collections without having to operate
+            on the objects to shuffle. By iterating over this it guarantees no index used twice
+            */
             List<Integer> randomOrderings = new ArrayList<>();
-            for (int j = rep; j < orderings.size(); j++) {
+            for (int j = 0; j < orderings.size(); j++) {
                 randomOrderings.add(j);
             }
 
@@ -108,23 +116,37 @@ public class project {
                 for (int j = 0; j < randomOrderings.size(); j++)
                     System.out.println(j + " - " + randomOrderings.get(j));
 
-                //reproduction on top of fitness table
-                reproduction(orderings, rep);
+
+                //reproduction(orderings, rep, randomOrderings);
+
+                /*
+                As I use same arrayList for orderings do nothing to number of orderings in reproduction
+                This means they are put in next generation with no change. These orderings are not operatated on
+                By either of the other functions due to use of randomOrderings List.
+                 */
                 System.out.println("After Reprodution!! " + orderings.size());
                 printToScreen(orderings);
 
-                //crossover on random orderings not user in reproduction
-                for (int j = 0; j < cross-1; j++) {
+                //crossover on random orderings not used in reproduction
+                for (int j = rep; j < (rep+cross); j++) {
                     System.out.println("J is " + j + " random is " + randomOrderings.get(j) + " and "+ randomOrderings.get(j+1));
+                    System.out.println("1st Crossover before");
+                    printSingleOrderingToScreen(orderings.get(randomOrderings.get(j)));
+                    //System.out.println("2nd Crossover before");
+                    //printSingleOrderingToScreen(orderings.get(randomOrderings.get(j+1)));
                     crossover(orderings, randomOrderings.get(j), randomOrderings.get(j+1));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j)));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j + 1)));
+                    System.out.println("1st Crossover after");
+                    printSingleOrderingToScreen(orderings.get(randomOrderings.get(j)));
+                    //System.out.println("2dn Crossover after");
+                    //printSingleOrderingToScreen(orderings.get(randomOrderings.get(j+1)));
                 }
                 System.out.println("After Crossover!! " + orderings.size());
                 printToScreen(orderings);
 
                 //mutation on random orderings not user in reproduction or crossover
-                for (int j = cross; j < randomOrderings.size(); j++) {
+                for (int j = rep+cross; j < randomOrderings.size(); j++) {
                     System.out.println("Mutation on " + j + " random is " + randomOrderings.get(j));
                     mutation(orderings, randomOrderings.get(j));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j)));
@@ -134,13 +156,16 @@ public class project {
                 printToScreen(orderings);
 
                 reorder(orderings);
-                //remove worst results to bring size back to original population
-                for (int j = orderings.size()-1; j >= population; j--){
-                    orderings.remove(j);
-                }
-                System.out.println("After Remove & reorder!! " + orderings.size());
+//                //remove worst results to bring size back to original population
+//                for (int j = orderings.size()-1; j >= population; j--){
+//                    orderings.remove(j);
+//                }
+                System.out.println("After reorder!! " + orderings.size());
                 printToScreen(orderings);
             }
+
+            System.out.println("Best result is: ");
+            printSingleOrderingToScreen(orderings.get(0));
         }
     }
 
@@ -155,11 +180,12 @@ public class project {
                     }
                 }
             }
-
         }
     }
 
-    //fitness function for recalculating individual orderings. Resets fitness to 0 first
+    /*
+    fitness function for recalculating individual orderings. Resets fitness to 0 first
+    */
     public static void fitnessFunction(ArrayList<Set<Integer>> studentModules, int[][]ordering)
     {
         ordering[0][ordering[0].length -1] = 0;
@@ -172,7 +198,9 @@ public class project {
             }
     }
 
-    //generating students table using shuffle on modules list
+    /*
+    generating students table using shuffle on modules list
+    */
     public static void generateStudentsTable(ArrayList<Set<Integer>> studentModules, List<Integer> modules, int students, int modulesInCourse){
         for(int i = 0; i < students; i++){
             Collections.shuffle(modules);
@@ -185,7 +213,9 @@ public class project {
         }
     }
 
-    //generate orderings
+    /*
+    generate orderings
+    */
     public static void generateOrderings(ArrayList<int[][]>orderings, int totalModules,
                                                        int simultaneousExams, int population, List<Integer> modules){
         for(int i = 0; i < population; ){
@@ -195,8 +225,10 @@ public class project {
             int count = 0, duplicatesFound = 0;
             for (int j = 0; j < set.length; j++){
                 for (int k =0; k < (totalModules/2); k++){
-                    //iterate up through modules list instead of popping records
-                    //this saves reinitialising List. Only need to shuffle again
+                    /*
+                    iterate up through modules list instead of popping records
+                    this saves reinitialising List. Only need to shuffle again
+                    */
                     set[j][k] = modules.get(count);
                     count ++;
                 }
@@ -231,10 +263,10 @@ public class project {
         for(int j = 0; j < orderings.get(location2).length; j++)
             ordering2[j] = orderings.get(location2)[j].clone();
 
-        //System.out.println("1st Crossover before");
+       //System.out.println("1st Crossover before");
         //printSingleOrderingToScreen(ordering1);
         int row = 0, col = 0, temp = 0;
-        int randomNum = ThreadLocalRandom.current().nextInt(0, (ordering1[0].length-1)*2);
+        int randomNum = ThreadLocalRandom.current().nextInt(1, (ordering1[0].length-2)*2);
         //System.out.println("Random Num is " + randomNum);
         for (int i = 0; i <= randomNum; i++){
             col = i % (ordering1[0].length-1);
@@ -252,8 +284,8 @@ public class project {
         }
         //System.out.println("Finished swapping");
         boolean found = false;
-        ArrayList<Integer> list1Dup = new ArrayList<Integer>();
-        ArrayList<Integer> list2Dup = new ArrayList<Integer>();
+        ArrayList<Integer> list1Dup = new ArrayList<>();
+        ArrayList<Integer> list2Dup = new ArrayList<>();
         for (int i = 0; i < ordering1.length; i++) {
             for (int j = 0; j < ordering1[i].length - 1; j++) {
                 if(list1Dup.contains(ordering1[i][j])) {
@@ -279,8 +311,8 @@ public class project {
                     list1Dup.add( ordering1[i][j]);
             }
         }
-        //System.out.println("1st Crossover aftere");
-       // printSingleOrderingToScreen(ordering1);
+       // System.out.println("1st Crossover after");
+        //printSingleOrderingToScreen(ordering1);
         /*
         System.out.println("1st Crossover before");
         printSingleOrderingToScreen(orderings.get(location1));
@@ -299,19 +331,24 @@ public class project {
        // printSingleOrderingToScreen(orderings.get(location1));
     }
 
-    //reproduction will add "index" amount of duplicates to the orderings
-    //these are taken from the top of the orderings which have lowest fitness cost
-    //then the worst orderings are removed so that orderings remains same size
-    public static void reproduction( ArrayList<int[][]>orderings, int index ){
+    /*
+    Reproduction will add "index" amount of duplicates to the orderings
+    these are taken from the top of the randomOrderings which are already shuffled indexes for orderings
+    */
+    public static void reproduction( ArrayList<int[][]>orderings, int index, List<Integer> randomOrderings ){
         for (int i = 0; i < index; i++){
             int [][] myInt = new int[orderings.get(i).length][];
             for(int j = 0; j < orderings.get(i).length; j++)
-                myInt[j] = orderings.get(i)[j].clone();
+                myInt[j] = orderings.get(randomOrderings.get(i))[j].clone();
             orderings.add(myInt);
+            System.out.println("Reproduction:");
+            System.out.println(i+1 + " - ordering - " + (randomOrderings.get(i)+1));
         }
     }
 
-    //custom comparator to reorder orderings ascending on fitness cost
+    /*
+    Custom comparator to reorder orderings ascending on fitness cost
+    */
     public static void reorder( ArrayList<int[][]>orderings) {
         Collections.sort(orderings, new Comparator<int[][]>() {
             public int compare(int[][] a, int[][] b) {
@@ -320,6 +357,9 @@ public class project {
         });
     }
 
+    /*
+    Perform mutation on ordering at index held in location
+     */
     public static void mutation(ArrayList<int[][]>orderings, int location){
         int [][] ordering = new int[orderings.get(location).length][];
         for(int j = 0; j < orderings.get(location).length; j++)
@@ -338,6 +378,9 @@ public class project {
         orderings.set(location, ordering);
     }
 
+    /*
+    Print student modules and orderings to text file
+     */
     public static void printToFile(ArrayList<Set<Integer>> studentModules, ArrayList<int[][]>orderings) throws  IOException{
         String output = "";
         File file = new File("AI17.txt");
@@ -374,7 +417,10 @@ public class project {
         writer.close();
     }
 
-    //Kept this function for debug/testing purposes
+    /*
+    Print orderings to screen
+    Kept this function for debug/testing purposes
+    */
     public static void printToScreen(ArrayList<int[][]>orderings){
         String output = "";
         for (int i = 0; i < orderings.size(); i++) {
@@ -392,6 +438,9 @@ public class project {
         System.out.println(output);
     }
 
+    /*
+    Print single ordering to screen
+    */
     public static void printSingleOrderingToScreen(int[][] ordering){
         String output = "";
             for (int j = 0; j < ordering.length; j++) {
