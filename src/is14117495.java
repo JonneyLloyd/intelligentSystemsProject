@@ -6,10 +6,11 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.*;
 
-public class project {
+
+public class is14117495 {
     public static void main(String args[]) throws IOException {
         Scanner scanner = new Scanner(System.in);
         int generations = 0, population =0, students = 0, totalModules = 0, modulesInCourse = 0,
@@ -82,23 +83,14 @@ public class project {
             generateStudentsTable(studentModules, modules, students, modulesInCourse);
 
             ArrayList<int[][]> orderings = new ArrayList<>();
+            ArrayList<int[][]> bestOrderings = new ArrayList<>();
             generateOrderings(orderings, totalModules, simultaneousExams, population, modules);
 
             fitnessFunction(studentModules, orderings);
 
-            printToFile(studentModules, orderings);
-
-            //TODO remove after testing
-            reorder(orderings);
-
-            //TODO remove after testing
-            printToScreen(orderings);
-
             int rep = (int)(((double)reproduction /100) * orderings.size());
             int cross = (int)(((double)crossover/100) * orderings.size());
             int mut = (int)Math.ceil(((double)mutation/100) * orderings.size());
-
-            System.out.println("Rep :" + rep + " cross :" + cross +" mut :" + mut);
             /*
             randomOrderings is a List of ints that correspond to the orderings ArrayList
             this is used to shuffle the orderings using collections without having to operate
@@ -110,62 +102,38 @@ public class project {
             }
 
             for(int i = 0; i < generations; i++) {
-                System.out.println("Start " + orderings.size());
                 Collections.shuffle(randomOrderings);
-
-                for (int j = 0; j < randomOrderings.size(); j++)
-                    System.out.println(j + " - " + randomOrderings.get(j));
-
-
-                //reproduction(orderings, rep, randomOrderings);
-
+                selection(orderings, (orderings.size()/3));
+                reorder(orderings);
+               //remove worst results to bring size back to original population
+                for (int j = orderings.size()-1; j >= population; j--){
+                   orderings.remove(j);
+                }
                 /*
                 As I use same arrayList for orderings do nothing to number of orderings in reproduction
                 This means they are put in next generation with no change. These orderings are not operatated on
                 By either of the other functions due to use of randomOrderings List.
                  */
-                System.out.println("After Reprodution!! " + orderings.size());
-                printToScreen(orderings);
 
                 //crossover on random orderings not used in reproduction
                 for (int j = rep; j < (rep+cross); j++) {
-                    System.out.println("J is " + j + " random is " + randomOrderings.get(j) + " and "+ randomOrderings.get(j+1));
-                    System.out.println("1st Crossover before");
-                    printSingleOrderingToScreen(orderings.get(randomOrderings.get(j)));
-                    //System.out.println("2nd Crossover before");
-                    //printSingleOrderingToScreen(orderings.get(randomOrderings.get(j+1)));
                     crossover(orderings, randomOrderings.get(j), randomOrderings.get(j+1));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j)));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j + 1)));
-                    System.out.println("1st Crossover after");
-                    printSingleOrderingToScreen(orderings.get(randomOrderings.get(j)));
-                    //System.out.println("2dn Crossover after");
-                    //printSingleOrderingToScreen(orderings.get(randomOrderings.get(j+1)));
                 }
-                System.out.println("After Crossover!! " + orderings.size());
-                printToScreen(orderings);
 
                 //mutation on random orderings not user in reproduction or crossover
                 for (int j = rep+cross; j < randomOrderings.size(); j++) {
-                    System.out.println("Mutation on " + j + " random is " + randomOrderings.get(j));
                     mutation(orderings, randomOrderings.get(j));
                     fitnessFunction(studentModules, orderings.get(randomOrderings.get(j)));
                 }
 
-                System.out.println("After Mutation!! " + orderings.size());
-                printToScreen(orderings);
-
                 reorder(orderings);
-//                //remove worst results to bring size back to original population
-//                for (int j = orderings.size()-1; j >= population; j--){
-//                    orderings.remove(j);
-//                }
-                System.out.println("After reorder!! " + orderings.size());
-                printToScreen(orderings);
+                bestOrderings.add(orderings.get(0));
             }
-
             System.out.println("Best result is: ");
             printSingleOrderingToScreen(orderings.get(0));
+            printToFile(studentModules,bestOrderings);
         }
     }
 
@@ -263,44 +231,33 @@ public class project {
         for(int j = 0; j < orderings.get(location2).length; j++)
             ordering2[j] = orderings.get(location2)[j].clone();
 
-       //System.out.println("1st Crossover before");
-        //printSingleOrderingToScreen(ordering1);
         int row = 0, col = 0, temp = 0;
-        int randomNum = ThreadLocalRandom.current().nextInt(1, (ordering1[0].length-2)*2);
-        //System.out.println("Random Num is " + randomNum);
+        int randomNum = ThreadLocalRandom.current().nextInt(2, (ordering1[0].length-2)*2);
         for (int i = 0; i <= randomNum; i++){
             col = i % (ordering1[0].length-1);
-            //System.out.println("COL is " + col);
             if(i == ordering1[0].length-1) {
                 row = 1;
              }
-            //System.out.println("order1 " +  ordering1[row][col] + " and order2 is " + ordering2[row][col]);
             temp = ordering1[row][col];
-            //System.out.println("Temp is " + temp);
             ordering1[row][col] = ordering2[row][col];
-           // System.out.println("order1 changed " +  ordering1[row][col]);
             ordering2[row][col] = temp;
-            //System.out.println("order2 changed " +  ordering2[row][col]);
         }
-        //System.out.println("Finished swapping");
         boolean found = false;
         ArrayList<Integer> list1Dup = new ArrayList<>();
-        ArrayList<Integer> list2Dup = new ArrayList<>();
+
         for (int i = 0; i < ordering1.length; i++) {
             for (int j = 0; j < ordering1[i].length - 1; j++) {
                 if(list1Dup.contains(ordering1[i][j])) {
-                    //System.out.println("Found duplicate");
+                    ArrayList<Integer> list2Dup = new ArrayList<>();
                     found = false;
                     //found duplicate in first list so swap with first duplicate found in second list
                     for (int k = 0;k < ordering2.length && !found; k++) {
-                        for (int l = 0; l < ordering2[k].length - 1; l++) {
+                        for (int l = 0; l < ordering2[k].length - 1 && !found; l++) {
                             if(list2Dup.contains(ordering2[k][l])) {
-                                //System.out.println("Found inner duplicate");
                                 temp = ordering1[i][j];
                                 ordering1[i][j] = ordering2[k][l];
                                 ordering2[k][l] = temp;
                                 found = true;
-                                list2Dup.clear();
                             }
                             else
                                 list2Dup.add( ordering2[k][l]);
@@ -311,38 +268,20 @@ public class project {
                     list1Dup.add( ordering1[i][j]);
             }
         }
-       // System.out.println("1st Crossover after");
-        //printSingleOrderingToScreen(ordering1);
-        /*
-        System.out.println("1st Crossover before");
-        printSingleOrderingToScreen(orderings.get(location1));
-        System.out.println("1st Crossover after");
-        printSingleOrderingToScreen(ordering1);
-
-        System.out.println("2nd Crossover before");
-        printSingleOrderingToScreen(orderings.get(location2));
-        System.out.println("2nd Crossover after");
-        printSingleOrderingToScreen(ordering2);
-        */
         orderings.set(location1, ordering1);
         orderings.set(location2, ordering2);
-
-        //System.out.println("1st Crossover after insert");
-       // printSingleOrderingToScreen(orderings.get(location1));
     }
 
     /*
     Reproduction will add "index" amount of duplicates to the orderings
     these are taken from the top of the randomOrderings which are already shuffled indexes for orderings
     */
-    public static void reproduction( ArrayList<int[][]>orderings, int index, List<Integer> randomOrderings ){
+    public static void selection( ArrayList<int[][]>orderings, int index){
         for (int i = 0; i < index; i++){
             int [][] myInt = new int[orderings.get(i).length][];
             for(int j = 0; j < orderings.get(i).length; j++)
-                myInt[j] = orderings.get(randomOrderings.get(i))[j].clone();
+                myInt[j] = orderings.get(i)[j].clone();
             orderings.add(myInt);
-            System.out.println("Reproduction:");
-            System.out.println(i+1 + " - ordering - " + (randomOrderings.get(i)+1));
         }
     }
 
@@ -367,10 +306,10 @@ public class project {
 
         int randomNum1, randomNum2, temp;
         //upto not including ordering.length as last column reserved for fitness
-        randomNum1 = ThreadLocalRandom.current().nextInt(0, ordering.length );
-        randomNum2 = ThreadLocalRandom.current().nextInt(0, ordering.length );
+        randomNum1 = ThreadLocalRandom.current().nextInt(0, ordering[0].length-1 );
+        randomNum2 = ThreadLocalRandom.current().nextInt(0, ordering[0].length-1 );
         while(randomNum1 == randomNum2){
-            randomNum2 = ThreadLocalRandom.current().nextInt(0, ordering.length);
+            randomNum2 = ThreadLocalRandom.current().nextInt(0, ordering[0].length-1);
         }
         temp = ordering[0][randomNum1];
         ordering[0][randomNum1] = ordering[1][randomNum2];
@@ -396,11 +335,11 @@ public class project {
             }
             output += "\n";
         }
-        output += "\n";
+        output += "\nBelow are the best orderings from each generation\n";
 
         //Looping through orderings and putting on output string
         for (int i = 0; i < orderings.size(); i++) {
-            output += "\nOrd" + (i + 1) + ":";
+            output += "\nGen" + (i + 1) + ":";
             for (int j = 0; j < orderings.get(i).length; j++) {
                 for (int k = 0; k < orderings.get(i)[j].length - 1; k++) {
                     output += "\tm"+ orderings.get(i)[j][k];
@@ -420,6 +359,7 @@ public class project {
     /*
     Print orderings to screen
     Kept this function for debug/testing purposes
+    Pass the ordering array to this function to print it to console
     */
     public static void printToScreen(ArrayList<int[][]>orderings){
         String output = "";
